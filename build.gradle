@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'citrixlogin.CitrixLogin')
+    }
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+group 'com.github.lexshcherbinin'
+version '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_15
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.typesafe:config:${typesafeConfigVersion}"
+    implementation "org.apache.poi:poi-ooxml:${apachePoi}"
+
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    implementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    implementation "org.junit.vintage:junit-vintage-engine:${junitVersion}"
+    implementation "com.codeborne:selenide:${selenideVersion}"
+}
+
+application {
+    mainClassName = 'citrixlogin.CitrixLogin'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    System.properties.each {
+        k, v -> systemProperty k, v
+    }
+}
