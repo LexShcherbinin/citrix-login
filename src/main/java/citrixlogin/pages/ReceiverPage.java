@@ -1,14 +1,15 @@
 package citrixlogin.pages;
 
-import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.By;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
 import static com.codeborne.selenide.Selenide.$;
 
+import com.codeborne.selenide.Selenide;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import org.openqa.selenium.By;
+
 public class ReceiverPage {
+
     public static void clickButton(final String buttonName) {
         Selenide.sleep(1000);
         $(By.xpath("//a[.='" + buttonName + "']")).click();

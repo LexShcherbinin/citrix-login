@@ -1,9 +1,9 @@
 package citrixlogin.pages;
 
+import static com.codeborne.selenide.Selenide.$;
+
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.$;
 
 public class CitrixPage {
     public static void clickButton(final String buttonName) {

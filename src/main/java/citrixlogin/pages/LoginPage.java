@@ -1,8 +1,8 @@
 package citrixlogin.pages;
 
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
+
+import org.openqa.selenium.By;
 
 public class LoginPage {
     public static void sendKeys(final String fieldName, final String value) {
